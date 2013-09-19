@@ -1,0 +1,21 @@
+Failing test code demonstrating issues with rspec-puppet and rspec-hiera-puppet
+
+To test:
+
+bundle install
+./runpuppet.sh
+
+(Should create /tmp/foo)
+
+Then:
+
+cd modules/foo
+bundle exec rake spec # Tests fail
+Comment the line: "require 'rspec-hiera-puppet'" out in spec/spec_helper.rb
+bundle exec rake spec # Tests now pass
+
+This seems to be: https://github.com/rodjek/rspec-puppet/issues/44, but I think
+the issue is in https://github.com/amfranz/rspec-hiera-puppet/blob/master/lib/rspec-hiera-puppet/puppet.rb
+
+Not sure how this is even supposed to work!
+
