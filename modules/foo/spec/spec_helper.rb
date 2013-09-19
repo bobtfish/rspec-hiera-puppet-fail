@@ -6,7 +6,7 @@ require 'puppet'
 require 'rspec'
 require 'rspec-puppet'
 
-#require 'rspec-hiera-puppet'
+require 'rspec-hiera-puppet'
 
 Spec::Runner.configure do |config|
     config.mock_with :mocha
